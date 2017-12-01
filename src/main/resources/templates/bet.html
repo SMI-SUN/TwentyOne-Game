@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Make Your Bet</title>
+</head>
+
+<body>
+
+<div>You have ${{ game.bank.cash }}</div>
+
+
+		<form method="post" action="/bet">
+			<input required autofocus type="number" name="bet">
+			<button>Place bet</button>
+		</form>
+</body>
+</html>

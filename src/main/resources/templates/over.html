@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+{{#game.didPlayerWin}}
+You WON the hand, keep playing!
+{{/game.didPlayerWin}}
+
+
+
+{{#game.didDealerWin}}
+You lost the hand, but keep playing!
+{{/game.didDealerWin}}
+
+
+<h2>Dealer Hand</h2>
+{{#game.dealer.hand.cards}}
+    <div>{{ face }} of {{ suit }}</div>
+{{/game.dealer.hand.cards}}
+
+Dealer Score = {{game.dealer.hand.total}}
+
+
+
+<h2>Player Hand</h2>
+
+{{#game.player.hand.cards}}
+    <div>{{ face }} of {{ suit }}</div>
+{{/game.player.hand.cards}}
+You Score = {{game.player.hand.total}}
+
+	<br>
+	Value of bank ${{game.bank.cash}}
+	<br>
+
+{{#game.outOfCards}}
+	Deck is out of cards! Please start over.
+{{/game.outOfCards}}
+
+<br>
+	<form method="post" action="/reBet">
+	    <input autofocus type="number" name="bet">
+	    <button>Place bet</button>
+	    <br><br> OR leave table <br>
+	    <button>Leave Table</button>
+	</form>
+<br>
+</body>
+</html>
